@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+    <!-- Header-->
+    <header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">تایید نهایی</h1>
+                <p class="lead fw-normal text-white-50 mb-0">یه بار دیگه چک کنید همه چی درست باشه</p>
+            </div>
+        </div>
+    </header>
+    <br>
+    
+    <div class="container">
+        <div class="row">
+            <center>
+                <div class="col-10">
+                    <div class="card">
+                        <div class="card-header">
+                          خلاصه سفارشات شما:
+                        </div>
+                        <div class="card-body">
+                          {% for product in cart_products %}
+                                {{ product.name }} <br>
+
+                                <small>
+                                    قیمت:
+                                {% if product.is_sale %}
+                                    {{ product.sale_price | intcomma  }}
+                                {% else %}
+                                    {{ product.price | intcomma  }}
+                                {% endif %}
+                                </small><br>
+
+                                <small>
+                                تعداد:
+                                {% for key,value in quantities.items %}
+                                    {% if key == product.id|slugify %}
+                                        {{ value }}
+                                    {% endif %}
+                                {% endfor %}
+                                </small> <br>
+                                <hr>
+
+                          {% endfor %}
+                            <strong>مجموع کل سفارشات {{ total | intcomma }}</strong>
+                            <br>
+              
+                        </div>
+                      </div>
+                      <br>
+                      <div class="card">
+                        <div class="card-header">
+                          مشخصات ارسال:
+                        </div>
+                        <div class="card-body">
+                            <form method="POST" action="{% url 'process_order' %}"> 
+                                {% csrf_token %}
+                          نام و نام خانوادگی: {{ shipping_info.shipping_full_name }} <br>
+                          ایمیل: {{ shipping_info.shipping_email }} <br>
+                          آدرس 1: {{ shipping_info.shipping_address1 }} <br>
+                          آدرس 2: {{ shipping_info.shipping_address2 }} <br>
+                          شهر: {{ shipping_info.shipping_city }} <br>
+                          منطقه: {{ shipping_info.shipping_state }} <br>
+                          کد پستی: {{ shipping_info.shipping_zipcode }} <br>
+                          کشور: {{ shipping_info.shipping_country }} <br>
+                        </div>
+                      </div>
+                </div>
+                <br>
+                <button type="submit" class='btn btn-sm btn-outline-secondary'>ثبت سفارش و پرداخت</button>
+            </form>
+            </center>
+        </div>
+    </div>
+<br><br><br><br><br><br>
+
+{% endblock %}
