@@ -151,7 +151,7 @@ def check_payment(request):
     if status == "OK":
         payload = {
             "merchant_id": ZARINPAL_MERCHENT,
-            "amount": order.amount_paid,
+            "amount": int(order.amount_paid),
             "authority": authority
         }
         response = requests.post(f"{ZARINPAL_API}/verify.json", json=payload)
