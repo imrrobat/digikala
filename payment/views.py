@@ -127,8 +127,9 @@ def process_order(request):
             pay_url = f"https://www.zarinpal.com/pg/StartPay/{data['authority']}"
             return render(request, "payment/redirecting.html", {"pay_url": pay_url})
         else:
-            messages.error(request, "خطا در اتصال به درگاه پرداخت")
-            return redirect("home")
+            return HttpResponse(response.text)
+            # messages.error(request, "خطا در اتصال به درگاه پرداخت")
+            # return redirect("home")
           
     else:
        messages.success(request, 'دسترسی به این صفحه امکان پذیر نمیباشد')
