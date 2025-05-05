@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+    <br>
+    
+    <div class="container">
+        <div class="row">
+            <center>
+              <div class="card">
+                <div class="card-header">
+                  لطفا منتظر بمانید
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">درحال انتقال به صفحه پرداخت</h5>
+                  <p class="card-text">سفارش ثبت شده و الان میرین برای پرداخت</p>
+                </div>
+              </div>   
+            </center>
+        </div>
+    </div>
+<br><br><br><br><br><br>
+<script>
+  setTimeout(function() {
+      window.location.href = "{{ pay_url }}";
+  }, 3000);
+</script>
+{% endblock %}
+

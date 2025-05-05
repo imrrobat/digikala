@@ -4,6 +4,7 @@ from shop.models import Product
 from django.db.models.signals import post_save 
 from django_jalali.db import models as jmodels 
 import jdatetime
+import uuid
 
 class ShippingAddress(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
@@ -34,7 +35,9 @@ class Order(models.Model):
         ('Pending', 'در انتظار پرداخت'),
         ('Processing', 'در حال پردازش'),
         ('Shipped', 'ارسال شده به پست'),
-        ('Delivered', 'تحویل داده شده')
+        ('Delivered', 'تحویل داده شده'),
+        ('Cancelled','سفارش لغو شده'),
+        ('Failed','پرداخت ناموفق')
     ]
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     full_name = models.CharField(max_length=250)
@@ -44,6 +47,7 @@ class Order(models.Model):
     date_ordered = jmodels.jDateTimeField(auto_now_add=True)
     status = models.CharField(max_length=50, choices=STATUS_ORDER, default='Pending')
     last_update = jmodels.jDateTimeField(auto_now=True)
+    uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     
     def save(self, *args, **kwargs):
         if self.pk:

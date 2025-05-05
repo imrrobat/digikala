@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+    <br>
+    
+        <div class="row">
+            <center>
+              
+<div class="container">
+  <div class="card {% if success %}border-success{% else %}border-danger{% endif %}">
+      <div class="card-header {% if success %}bg-success text-white{% else %}bg-danger text-white{% endif %}">
+          {% if success %}
+              پرداخت موفق
+          {% else %}
+              پرداخت ناموفق
+          {% endif %}
+      </div>
+      <div class="card-body">
+          {% if success %}
+              <h5 class="card-title">پرداخت شما با موفقیت انجام شد</h5>
+              <p class="card-text">کد رهگیری: <strong>{{ tracking_code }}</strong></p>
+          {% else %}
+              <h5 class="card-title">مشکلی در پرداخت پیش آمد</h5>
+          {% endif %}
+          <p class="card-text">{{ message }}</p>
+          <a href="{% url 'home' %}" class="btn btn-primary mt-3">بازگشت به صفحه اصلی</a>
+      </div>
+  </div>
+</div>
+
+            </center>
+    </div>
+<br><br><br><br><br><br>
+<script>
+  setTimeout(function() {
+      window.location.href = "{{ pay_url }}";
+  }, 3000);
+</script>
+{% endblock %}
+
