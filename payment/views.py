@@ -158,17 +158,17 @@ def check_payment(request):
         data = response.json().get("data", {})
 
         if data.get("code") == 100:
-            order.status = "paid"
+            order.status = "Processing"
             order.save()
             context["success"] = True
             context["tracking_code"] = data.get("ref_id")
             context["message"] = "پرداخت با موفقیت انجام شد"
         else:
-            order.status = "failed"
+            order.status = "Failed"
             order.save()
             context["message"] = f"پرداخت ناموفق بود. کد خطا: {data.get('code')}"
     else:
-        order.status = "cancelled"
+        order.status = "Cancelled"
         order.save()
         context["message"] = "پرداخت توسط کاربر لغو شد"
 
