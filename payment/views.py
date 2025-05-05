@@ -112,7 +112,7 @@ def process_order(request):
         
         payload = {
             "merchant_id": ZARINPAL_MERCHENT,
-            "amount": total,
+            "amount": int(total),
             "callback_url": CALLBACK_URL,
             "description": f"پرداخت سفارش {new_order.id}",
             "metadata": {
