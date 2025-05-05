@@ -9,6 +9,8 @@ import requests
 from dotenv import load_dotenv
 import os 
 import uuid
+from django.http import HttpResponse
+
 
 load_dotenv()
 ZARINPAL_MERCHENT = os.getenv('ZARINPAL_MERCHENT')
