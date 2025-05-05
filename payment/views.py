@@ -157,7 +157,7 @@ def check_payment(request):
         response = requests.post(f"{ZARINPAL_API}/verify.json", json=payload)
         data = response.json().get("data", {})
 
-        if data.get("code") == 100:
+        if data.get("code") in [100, 101]:
             order.status = "Processing"
             order.save()
             context["success"] = True
