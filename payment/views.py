@@ -111,7 +111,8 @@ def process_order(request):
         
         # messages.success(request, 'سفارش ثبت شد')
         # return redirect('home')
-        
+        CALLBACK_URL = f"https://digikala-vdot.onrender.com/payment/check_payment/?uuid={new_order.uuid}"
+
         payload = {
             "merchant_id": ZARINPAL_MERCHENT,
             "amount": int(total),
