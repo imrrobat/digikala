@@ -117,10 +117,6 @@ def process_order(request):
             "amount": int(total),
             "callback_url": CALLBACK_URL,
             "description": f"پرداخت سفارش {new_order.id}",
-            "metadata": {
-                "mobile": user_shipping.get("shipping_phone", ""),
-                "email": email
-            }
         }
         response = requests.post(f"{ZARINPAL_API}/request.json", json=payload)
         data = response.json().get("data", {})
