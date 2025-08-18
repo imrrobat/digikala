@@ -15,7 +15,7 @@ import uuid
 load_dotenv()
 ZARINPAL_MERCHENT = os.getenv('ZARINPAL_MERCHENT')
 ZARINPAL_API = "https://payment.zarinpal.com/pg/v4/payment"
-CALLBACK_URL = "https://digikala-vdot.onrender.com/payment/check_payment/"
+CALLBACK_URL = "HERE YOU MUST PUT A CALLBACK URL"
 
 # def payment_success(request):
 #     return render(request, 'payment/payment_success.htm', {}) 
