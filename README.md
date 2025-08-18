@@ -68,7 +68,12 @@ To enable payments:
 
 ## 📸 Screenshots
 
-*(Add some screenshots of your project here if possible – homepage, product page, cart, checkout, etc.)*
+![Digikala Clone Screenshot](https://s6.uupload.ir/files/digikala_pic_gfwh.png)
+
+## 🎥 Tutorial
+I have explained step by step how to build this project on my YouTube channel.  
+Check out the full playlist here:  
+👉 [YouTube Playlist](https://www.youtube.com/playlist?list=PLpz9JE3CHJZw9G9jtTy9VQlsx0VNfblzu)
 
 ## 🤝 Contributing
 
