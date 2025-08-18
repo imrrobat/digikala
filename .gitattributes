@@ -1,6 +1,8 @@
 # Ignore static files (Bootstrap, JS, CSS) from language stats
 *.css linguist-vendored
 *.js linguist-vendored
+*.html linguist-vendored
+*.htm linguist-vendored
 /static/* linguist-vendored
 
 # Ignore Django migrations (auto-generated Python files)
