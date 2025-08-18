@@ -82,7 +82,3 @@ Contributions are welcome! Feel free to fork this repo and submit pull requests.
 ## ⭐ Support
 
 If you like this project, please give it a **star** ⭐ on GitHub — it really helps!
-
----
-
-می‌خوای من همینو برات فارسی هم آماده کنم (برای مخاطب ایرانی) یا اینکه انگلیسی بمونه بهتره؟
