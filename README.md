@@ -26,7 +26,7 @@ This project also integrates with **Zarinpal Payment Gateway** for real-world pa
 
    ```bash
    git clone https://github.com/imrrobat/digikala.git
-   cd YourRepo
+   cd digikala
    ```
 2. Create and activate a virtual environment:
 
